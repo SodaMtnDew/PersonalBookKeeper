@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="strAppTitle" xml:space="preserve">
+    <value>Personal BookKeeper</value>
+  </data>
+  <data name="strBtnAdd2Schedule" xml:space="preserve">
+    <value>Add to Schedule</value>
+  </data>
+  <data name="strBtnAddAccount" xml:space="preserve">
+    <value>Add Account</value>
+  </data>
+  <data name="strBtnAddCategory" xml:space="preserve">
+    <value>Add Category</value>
+  </data>
+  <data name="strBtnAddCurrency" xml:space="preserve">
+    <value>Add Currency</value>
+  </data>
+  <data name="strBtnAddSchedule" xml:space="preserve">
+    <value>Add Schedule</value>
+  </data>
+  <data name="strBtnAddTransaction" xml:space="preserve">
+    <value>Add Transaction</value>
+  </data>
+  <data name="strBtnAddTypes" xml:space="preserve">
+    <value>Add Types</value>
+  </data>
+  <data name="strBtnDelAccount" xml:space="preserve">
+    <value>Delete Account</value>
+  </data>
+  <data name="strBtnDelSchedule" xml:space="preserve">
+    <value>Delete Schedule</value>
+  </data>
+  <data name="strBtnDelTransaction" xml:space="preserve">
+    <value>Delete Transaction</value>
+  </data>
+  <data name="strBtnModAccount" xml:space="preserve">
+    <value>Modify Account</value>
+  </data>
+  <data name="strBtnModCategory" xml:space="preserve">
+    <value>Modify Category</value>
+  </data>
+  <data name="strBtnModCurrency" xml:space="preserve">
+    <value>Modify Currency</value>
+  </data>
+  <data name="strBtnModSchedule" xml:space="preserve">
+    <value>Modify Schedule</value>
+  </data>
+  <data name="strBtnModTypes" xml:space="preserve">
+    <value>Modify Types</value>
+  </data>
+  <data name="strBtnRefresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="strBtnRunSchedule" xml:space="preserve">
+    <value>Make Transaction</value>
+  </data>
+  <data name="strErrAccountBalanceNot0" xml:space="preserve">
+    <value>The Balance of Account to Be Deleted SHOULD Be 0!</value>
+  </data>
+  <data name="strErrAcronymBlank" xml:space="preserve">
+    <value>Acronym SHOULD NOT Be Blank!</value>
+  </data>
+  <data name="strErrAmountInBlank" xml:space="preserve">
+    <value>Amount In SHOULD NOT Be Blank When Category is Transfer or Income!</value>
+  </data>
+  <data name="strErrAmountOutBlank" xml:space="preserve">
+    <value>Amount Out SHOULD NOT Be Blank When Category is Transfer or Outcome!</value>
+  </data>
+  <data name="strErrBalanceBlank" xml:space="preserve">
+    <value>Initial Balance of Account SHOULD NOT Be Blank!</value>
+  </data>
+  <data name="strErrCurrencyNotAssigned" xml:space="preserve">
+    <value>Currency of Account SHOULD Be Assigned!</value>
+  </data>
+  <data name="strErrDbSchema" xml:space="preserve">
+    <value>DB Schema NOT Matching, Application Terminated!</value>
+  </data>
+  <data name="strErrInvalidDecPoint" xml:space="preserve">
+    <value>Decimal Point SHOULD Be 0, 1, 2 or 3!</value>
+  </data>
+  <data name="strErrMonthInvalid" xml:space="preserve">
+    <value>Invalid Month Value Set When Using Customized Query!</value>
+  </data>
+  <data name="strErrNameBlank" xml:space="preserve">
+    <value>Name SHOULD NOT Be Blank!</value>
+  </data>
+  <data name="strErrNoAccount2Delete" xml:space="preserve">
+    <value>Please Select Account to Be Deleted!</value>
+  </data>
+  <data name="strErrNoAccount2Modify" xml:space="preserve">
+    <value>Please Select Account to Be Modified!</value>
+  </data>
+  <data name="strErrNoCategoryAssigned" xml:space="preserve">
+    <value>Category SHOULD Be Assigned Before Adding a Transaction!</value>
+  </data>
+  <data name="strErrNoCategorySelected" xml:space="preserve">
+    <value>Please Select Category to Be Modified!</value>
+  </data>
+  <data name="strErrNoDb" xml:space="preserve">
+    <value>MS-SQL DB or Server NOT Installed, Application Terminated!</value>
+  </data>
+  <data name="strErrNoDstAccount" xml:space="preserve">
+    <value>Destination Account SHOULD Be Assigned When Category is Transfer or Income!</value>
+  </data>
+  <data name="strErrNoFlowDirectSelected" xml:space="preserve">
+    <value>Please Set Transaction Category as 'Income', 'Transfer' or 'Outcome'!</value>
+  </data>
+  <data name="strErrNoSchedule2Delete" xml:space="preserve">
+    <value>Please Select Schedule to Be Deleted!</value>
+  </data>
+  <data name="strErrNoSchedule2MakeTransaction" xml:space="preserve">
+    <value>Please Select Schedule to Make Transaction!</value>
+  </data>
+  <data name="strErrNoSchedule2Modify" xml:space="preserve">
+    <value>Please Select Schedule to Be Modified!</value>
+  </data>
+  <data name="strErrNoSrcAccount" xml:space="preserve">
+    <value>Source Account SHOULD Be Assigned When Category is Transfer or Outcome!</value>
+  </data>
+  <data name="strErrNoTransaction2Add2Schedule" xml:space="preserve">
+    <value>Please Select Transaction to Be Added to Schedules!</value>
+  </data>
+  <data name="strErrNoTransaction2Delete" xml:space="preserve">
+    <value>Please Select Transaction to Be Deleted!</value>
+  </data>
+  <data name="strErrNoTypeFlagSelected" xml:space="preserve">
+    <value>Please Set Account Type as 'Assets' or 'Liabilities'!</value>
+  </data>
+  <data name="strErrNoTypeSelected" xml:space="preserve">
+    <value>Please Select Account Type to Be Modified!</value>
+  </data>
+  <data name="strErrPeriodBlank" xml:space="preserve">
+    <value>Period (in Day) SHOULD NOT Be Blank!</value>
+  </data>
+  <data name="strErrPeriodInvalid" xml:space="preserve">
+    <value>Invalid Period (in Day), SHOULD Be Between 7 &amp; 365!</value>
+  </data>
+  <data name="StrErrTabLock" xml:space="preserve">
+    <value>Could NOT Tab Out When Editing in Current Tab!</value>
+  </data>
+  <data name="strErrTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="strErrTypeNotAssigned" xml:space="preserve">
+    <value>Account Type SHOULD Be Assigned!</value>
+  </data>
+  <data name="strErrYearInvalid" xml:space="preserve">
+    <value>Invalid Year Value (Not Between 2000 &amp; 2099) Set When Using Customized Query!</value>
+  </data>
+  <data name="strErrYearNotSet" xml:space="preserve">
+    <value>Year Value SHOULD Be Set (Month Value is Optional) When Using Customized Query!</value>
+  </data>
+  <data name="strHintConfirmKeepMainCurrency" xml:space="preserve">
+    <value>Ready to Modify the Main Currency, Want to Keep Existing Main Currency Setting?</value>
+  </data>
+  <data name="strHintConfirmMainCurrency" xml:space="preserve">
+    <value>No Main Currency Setting in System, Want the Added Currency to be Set as Main Currency?</value>
+  </data>
+  <data name="strHintConfirmNotClearMainCurrency" xml:space="preserve">
+    <value>Ready to Reset the Main Currency, Want to Keep Existing Main Currency Setting?</value>
+  </data>
+  <data name="strHintConfirmOverwriteMainCurrency" xml:space="preserve">
+    <value>Adding Main Currency WILL Overwrite Main Currency Setting in System, Want to Overwrite?</value>
+  </data>
+  <data name="strHintForTabs" xml:space="preserve">
+    <value>Add Field(s) in "{0}" and "{1}" Table to Activate "{2}" Tab!</value>
+  </data>
+  <data name="strHintModCurrency" xml:space="preserve">
+    <value>Please Select Existing Currency to Be Modified!</value>
+  </data>
+  <data name="strHintTitle" xml:space="preserve">
+    <value>Hint</value>
+  </data>
+  <data name="strHintTransactionFromSchedule" xml:space="preserve">
+    <value>Want to Make Transaction Using Selected Schedule?</value>
+  </data>
+  <data name="strTabAccount" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="strTabCategory" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="strTabCurrency" xml:space="preserve">
+    <value>Currencies</value>
+  </data>
+  <data name="strTabMain" xml:space="preserve">
+    <value>Main Tab</value>
+  </data>
+  <data name="strTabSchedule" xml:space="preserve">
+    <value>Schedules</value>
+  </data>
+  <data name="strTabTransaction" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="strTabType" xml:space="preserve">
+    <value>Account Types</value>
+  </data>
+  <data name="strTxtAccounts" xml:space="preserve">
+    <value>Accounts in DB</value>
+  </data>
+  <data name="strTxtAccountType" xml:space="preserve">
+    <value>Account Type</value>
+  </data>
+  <data name="strTxtAccountTypes" xml:space="preserve">
+    <value>Account Types in DB</value>
+  </data>
+  <data name="strTxtAcronym" xml:space="preserve">
+    <value>Acronym</value>
+  </data>
+  <data name="strTxtAddSubCategory" xml:space="preserve">
+    <value>Want to Add Sub-Vategory of Current Selected Category? (Click 'No' to Add Root Category)</value>
+  </data>
+  <data name="strTxtAddSubTypes" xml:space="preserve">
+    <value>Want to Add Sub-Type of Current Selected Type? (Click 'No' to Add Root Type)</value>
+  </data>
+  <data name="strTxtAllSchedules" xml:space="preserve">
+    <value>All Schedules</value>
+  </data>
+  <data name="strTxtAmountIn" xml:space="preserve">
+    <value>Amount In</value>
+  </data>
+  <data name="strTxtAmountOut" xml:space="preserve">
+    <value>Amount Out</value>
+  </data>
+  <data name="strTxtAssets" xml:space="preserve">
+    <value>Assets</value>
+  </data>
+  <data name="strTxtBalance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="strTxtCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="strTxtCancelAdd" xml:space="preserve">
+    <value>Cancel Add</value>
+  </data>
+  <data name="strTxtCancelMod" xml:space="preserve">
+    <value>Cancel Modify</value>
+  </data>
+  <data name="strTxtCategories" xml:space="preserve">
+    <value>Transaction Categories in DB</value>
+  </data>
+  <data name="strTxtCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="strTxtChangeAssets" xml:space="preserve">
+    <value>Change in Assets</value>
+  </data>
+  <data name="strTxtChangeLiabilities" xml:space="preserve">
+    <value>Change in Liabilities</value>
+  </data>
+  <data name="strTxtConfirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="strTxtConfirmAdd" xml:space="preserve">
+    <value>Confirm Add</value>
+  </data>
+  <data name="strTxtConfirmMod" xml:space="preserve">
+    <value>Confirm Modify</value>
+  </data>
+  <data name="strTxtCreatedTime" xml:space="preserve">
+    <value>Created Time</value>
+  </data>
+  <data name="strTxtCurrencies" xml:space="preserve">
+    <value>Currencies in DB</value>
+  </data>
+  <data name="strTxtCurrency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="strTxtCustomize" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="strTxtDecPoint" xml:space="preserve">
+    <value>Decimal Point</value>
+  </data>
+  <data name="strTxtDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="strTxtDstAccount" xml:space="preserve">
+    <value>Destination Account</value>
+  </data>
+  <data name="strTxtDueSchedules" xml:space="preserve">
+    <value>Due Schedules</value>
+  </data>
+  <data name="strTxtEquity" xml:space="preserve">
+    <value>Equity</value>
+  </data>
+  <data name="strTxtFlowDirect" xml:space="preserve">
+    <value>Cashflow Direction</value>
+  </data>
+  <data name="strTxtIncome" xml:space="preserve">
+    <value>Income</value>
+  </data>
+  <data name="strTxtIsMainCurrency" xml:space="preserve">
+    <value>Is Main Currency?</value>
+  </data>
+  <data name="strTxtLastMade" xml:space="preserve">
+    <value>Last Made Time</value>
+  </data>
+  <data name="strTxtLastMonth" xml:space="preserve">
+    <value>Last Month</value>
+  </data>
+  <data name="strTxtLastYear" xml:space="preserve">
+    <value>Last Year</value>
+  </data>
+  <data name="strTxtLiabilities" xml:space="preserve">
+    <value>Liabilities</value>
+  </data>
+  <data name="strTxtMadeTime" xml:space="preserve">
+    <value>Made Time</value>
+  </data>
+  <data name="strTxtMonth" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="strTxtName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="strTxtNameAccount" xml:space="preserve">
+    <value>Account Name</value>
+  </data>
+  <data name="strTxtNameAccountType" xml:space="preserve">
+    <value>Account Type Name</value>
+  </data>
+  <data name="strTxtNameCategory" xml:space="preserve">
+    <value>Category Name</value>
+  </data>
+  <data name="strTxtNameCurrency" xml:space="preserve">
+    <value>Currency Name</value>
+  </data>
+  <data name="strTxtNameSchedule" xml:space="preserve">
+    <value>Schedule Name</value>
+  </data>
+  <data name="strTxtNameTransaction" xml:space="preserve">
+    <value>Transaction Name</value>
+  </data>
+  <data name="strTxtNetCashflow" xml:space="preserve">
+    <value>Net Cash Flow</value>
+  </data>
+  <data name="strTxtOutcome" xml:space="preserve">
+    <value>Outcome</value>
+  </data>
+  <data name="strTxtPeriodInDay" xml:space="preserve">
+    <value>Period in Day</value>
+  </data>
+  <data name="strTxtPickTransactionTime" xml:space="preserve">
+    <value>Pick the Time to Make Scheduled Transaction!</value>
+  </data>
+  <data name="strTxtSchedules" xml:space="preserve">
+    <value>Schedules in DB</value>
+  </data>
+  <data name="strTxtSetMainCurrency" xml:space="preserve">
+    <value>Set Selected as Main Currency</value>
+  </data>
+  <data name="strTxtSrcAccount" xml:space="preserve">
+    <value>Source Account</value>
+  </data>
+  <data name="strTxtThisMonth" xml:space="preserve">
+    <value>This Month</value>
+  </data>
+  <data name="strTxtThisYear" xml:space="preserve">
+    <value>This Year</value>
+  </data>
+  <data name="strTxtTitleBalance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="strTxtTitleCashflow" xml:space="preserve">
+    <value>Cashflow</value>
+  </data>
+  <data name="strTxtTotalInflows" xml:space="preserve">
+    <value>Total Cash Inflows</value>
+  </data>
+  <data name="strTxtTotalOutflows" xml:space="preserve">
+    <value>Total Cash Outflows</value>
+  </data>
+  <data name="strTxtTransactions" xml:space="preserve">
+    <value>Transactions in DB</value>
+  </data>
+  <data name="strTxtTransfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="strTxtTypeFlags" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="strTxtUpdatedTime" xml:space="preserve">
+    <value>Updated Time</value>
+  </data>
+  <data name="strTxtYear" xml:space="preserve">
+    <value>Year</value>
+  </data>
+</root>
