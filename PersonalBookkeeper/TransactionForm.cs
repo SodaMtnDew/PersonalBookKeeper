@@ -40,7 +40,7 @@ namespace PersonalBookKeeper
             labelCategory.Text = PersonalBookKeeper.Properties.Resources.strTxtCategory;
             labelDstAccount.Text = PersonalBookKeeper.Properties.Resources.strTxtDstAccount;
             labelTransactionName.Text = PersonalBookKeeper.Properties.Resources.strTxtNameTransaction;
-            labelTransactionDesc.Text = PersonalBookKeeper.Properties.Resources.strTxtDescription;
+            labelTransactionDesc.Text = PersonalBookKeeper.Properties.Resources.strTxtDescTransaction;
             chkSetTime.Text = PersonalBookKeeper.Properties.Resources.strTxtMadeTime;
             labelSrcAmount.Text = PersonalBookKeeper.Properties.Resources.strTxtAmountOut;
             labelDstAmount.Text = PersonalBookKeeper.Properties.Resources.strTxtAmountIn;
@@ -215,29 +215,35 @@ namespace PersonalBookKeeper
 
         private void txtSrcAmount_TextChanged(object sender, EventArgs e)
         {
-            if ((dbGridSrcAccount.SelectedRows.Count > 0) && (dbGridDstAccount.SelectedRows.Count > 0))
+            if (!dbGridTransaction.Enabled)
             {
-                int srcCurID = -1, dstCurID = -1;
-                if (dbGridSrcAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
-                    srcCurID = Convert.ToInt32(dbGridSrcAccount.SelectedRows[0].Cells[3].Value);
-                if (dbGridDstAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
-                    dstCurID = Convert.ToInt32(dbGridDstAccount.SelectedRows[0].Cells[3].Value);
-                if (srcCurID == dstCurID)
-                    txtDstAmount.Text = txtSrcAmount.Text;
+                if ((dbGridSrcAccount.SelectedRows.Count > 0) && (dbGridDstAccount.SelectedRows.Count > 0))
+                {
+                    int srcCurID = -1, dstCurID = -1;
+                    if (dbGridSrcAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
+                        srcCurID = Convert.ToInt32(dbGridSrcAccount.SelectedRows[0].Cells[3].Value);
+                    if (dbGridDstAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
+                        dstCurID = Convert.ToInt32(dbGridDstAccount.SelectedRows[0].Cells[3].Value);
+                    if (srcCurID == dstCurID)
+                        txtDstAmount.Text = txtSrcAmount.Text;
+                }
             }
         }
 
         private void txtDstAmount_TextChanged(object sender, EventArgs e)
         {
-            if ((dbGridSrcAccount.SelectedRows.Count > 0) && (dbGridDstAccount.SelectedRows.Count > 0))
+            if (!dbGridTransaction.Enabled)
             {
-                int srcCurID = -1, dstCurID = -1;
-                if (dbGridSrcAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
-                    srcCurID = Convert.ToInt32(dbGridSrcAccount.SelectedRows[0].Cells[3].Value);
-                if (dbGridDstAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
-                    dstCurID = Convert.ToInt32(dbGridDstAccount.SelectedRows[0].Cells[3].Value);
-                if (srcCurID == dstCurID)
-                    txtSrcAmount.Text = txtDstAmount.Text;
+                if ((dbGridSrcAccount.SelectedRows.Count > 0) && (dbGridDstAccount.SelectedRows.Count > 0))
+                {
+                    int srcCurID = -1, dstCurID = -1;
+                    if (dbGridSrcAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
+                        srcCurID = Convert.ToInt32(dbGridSrcAccount.SelectedRows[0].Cells[3].Value);
+                    if (dbGridDstAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
+                        dstCurID = Convert.ToInt32(dbGridDstAccount.SelectedRows[0].Cells[3].Value);
+                    if (srcCurID == dstCurID)
+                        txtSrcAmount.Text = txtDstAmount.Text;
+                }
             }
         }
 
@@ -330,9 +336,9 @@ namespace PersonalBookKeeper
             dbGridTransaction.Columns[5].Visible = false;
             dbGridTransaction.Columns[6].Visible = false;
             dbGridTransaction.Columns[7].Visible = false;
-            dbGridTransaction.Columns[8].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtName;
+            dbGridTransaction.Columns[8].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtNameTransaction;
             dbGridTransaction.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dbGridTransaction.Columns[9].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtDescription;
+            dbGridTransaction.Columns[9].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtDescTransaction;
             dbGridTransaction.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dbGridTransaction.Columns[10].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtCategory;
             dbGridTransaction.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -418,8 +424,8 @@ namespace PersonalBookKeeper
             dbGridCategory.Enabled = bEdit;
             dbGridSrcAccount.Enabled = bEdit && (dbGridCategory.SelectedRows.Count != 0);
             dbGridDstAccount.Enabled = bEdit && (dbGridCategory.SelectedRows.Count != 0);
-            txtSrcAmount.ReadOnly = !(bEdit && (dbGridCategory.SelectedRows.Count != 0));
-            txtDstAmount.ReadOnly = !(bEdit && (dbGridCategory.SelectedRows.Count != 0));
+            txtSrcAmount.ReadOnly = !(bEdit && (dbGridSrcAccount.SelectedRows.Count != 0));
+            txtDstAmount.ReadOnly = !(bEdit && (dbGridDstAccount.SelectedRows.Count != 0));
             btnSchedule.Enabled = !bEdit;
             dbGridTransaction.Enabled = !bEdit;
         }
@@ -431,7 +437,7 @@ namespace PersonalBookKeeper
             {
                 if (txtTransactionName.Text == "")
                 {
-                    MessageBox.Show(PersonalBookKeeper.Properties.Resources.strErrNameBlank, PersonalBookKeeper.Properties.Resources.strErrTitle);
+                    MessageBox.Show(PersonalBookKeeper.Properties.Resources.strErrNameTransactionBlank, PersonalBookKeeper.Properties.Resources.strErrTitle);
                     bOK = false;
                 }
             }
@@ -439,7 +445,7 @@ namespace PersonalBookKeeper
             {
                 if (dbGridCategory.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show(PersonalBookKeeper.Properties.Resources.strErrNoCategoryAssigned, PersonalBookKeeper.Properties.Resources.strErrTitle);
+                    MessageBox.Show(PersonalBookKeeper.Properties.Resources.strErrNoCategoryAssigned4Transaction, PersonalBookKeeper.Properties.Resources.strErrTitle);
                     bOK = false;
                 } 
             }

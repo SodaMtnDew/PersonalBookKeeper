@@ -42,7 +42,7 @@ namespace PersonalBookKeeper
             labelCategory.Text = PersonalBookKeeper.Properties.Resources.strTxtCategory;
             labelDstAccount.Text = PersonalBookKeeper.Properties.Resources.strTxtDstAccount;
             labelScheduleName.Text = PersonalBookKeeper.Properties.Resources.strTxtNameSchedule;
-            labelScheduleDesc.Text = PersonalBookKeeper.Properties.Resources.strTxtDescription;
+            labelScheduleDesc.Text = PersonalBookKeeper.Properties.Resources.strTxtDescSchedule;
             labelPeriod.Text = PersonalBookKeeper.Properties.Resources.strTxtPeriodInDay;
             labelLastUpdate.Text = PersonalBookKeeper.Properties.Resources.strTxtLastMade;
             labelSrcAmount.Text = PersonalBookKeeper.Properties.Resources.strTxtAmountOut;
@@ -100,7 +100,10 @@ namespace PersonalBookKeeper
                 SetEditAll(false);
                 btnAdd.Text = PersonalBookKeeper.Properties.Resources.strBtnAddSchedule;
                 btnMod.Text = PersonalBookKeeper.Properties.Resources.strBtnModSchedule;
-                UpdateEditForm();
+                if (dbGridSchedule.SelectedRows.Count > 0)
+                    UpdateEditForm();
+                else
+                    ClearEditForm();
                 parentForm.UnlockTab();               
             }
         }
@@ -113,7 +116,7 @@ namespace PersonalBookKeeper
             {
                 DeleteFromSchedule();
                 RefreshSchedules();
-                dbGridSchedule.SelectedRows.Clear();
+                dbGridSchedule.ClearSelection();
             }
         }
 
@@ -243,29 +246,35 @@ namespace PersonalBookKeeper
 
         private void txtSrcAmount_TextChanged(object sender, EventArgs e)
         {
-            if ((dbGridSrcAccount.SelectedRows.Count > 0) && (dbGridDstAccount.SelectedRows.Count > 0))
+            if (!dbGridSchedule.Enabled)
             {
-                int srcCurID = -1, dstCurID = -1;
-                if (dbGridSrcAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
-                    srcCurID = Convert.ToInt32(dbGridSrcAccount.SelectedRows[0].Cells[3].Value);
-                if (dbGridDstAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
-                    dstCurID = Convert.ToInt32(dbGridDstAccount.SelectedRows[0].Cells[3].Value);
-                if (srcCurID == dstCurID)
-                    txtDstAmount.Text = txtSrcAmount.Text;
+                if ((dbGridSrcAccount.SelectedRows.Count > 0) && (dbGridDstAccount.SelectedRows.Count > 0))
+                {
+                    int srcCurID = -1, dstCurID = -1;
+                    if (dbGridSrcAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
+                        srcCurID = Convert.ToInt32(dbGridSrcAccount.SelectedRows[0].Cells[3].Value);
+                    if (dbGridDstAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
+                        dstCurID = Convert.ToInt32(dbGridDstAccount.SelectedRows[0].Cells[3].Value);
+                    if (srcCurID == dstCurID)
+                        txtDstAmount.Text = txtSrcAmount.Text;
+                }
             }
         }
 
         private void txtDstAmount_TextChanged(object sender, EventArgs e)
         {
-            if ((dbGridSrcAccount.SelectedRows.Count > 0) && (dbGridDstAccount.SelectedRows.Count > 0))
+            if (!dbGridSchedule.Enabled)
             {
-                int srcCurID = -1, dstCurID = -1;
-                if (dbGridSrcAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
-                    srcCurID = Convert.ToInt32(dbGridSrcAccount.SelectedRows[0].Cells[3].Value);
-                if (dbGridDstAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
-                    dstCurID = Convert.ToInt32(dbGridDstAccount.SelectedRows[0].Cells[3].Value);
-                if (srcCurID == dstCurID)
-                    txtSrcAmount.Text = txtDstAmount.Text;
+                if ((dbGridSrcAccount.SelectedRows.Count > 0) && (dbGridDstAccount.SelectedRows.Count > 0))
+                {
+                    int srcCurID = -1, dstCurID = -1;
+                    if (dbGridSrcAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
+                        srcCurID = Convert.ToInt32(dbGridSrcAccount.SelectedRows[0].Cells[3].Value);
+                    if (dbGridDstAccount.SelectedRows[0].Cells[3].Value != DBNull.Value)
+                        dstCurID = Convert.ToInt32(dbGridDstAccount.SelectedRows[0].Cells[3].Value);
+                    if (srcCurID == dstCurID)
+                        txtSrcAmount.Text = txtDstAmount.Text;
+                }
             }
         }
 
@@ -359,9 +368,9 @@ namespace PersonalBookKeeper
             dbGridSchedule.Columns[5].Visible = false;
             dbGridSchedule.Columns[6].Visible = false;
             dbGridSchedule.Columns[7].Visible = false;
-            dbGridSchedule.Columns[8].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtName;
+            dbGridSchedule.Columns[8].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtNameSchedule;
             dbGridSchedule.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dbGridSchedule.Columns[9].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtDescription;
+            dbGridSchedule.Columns[9].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtDescSchedule;
             dbGridSchedule.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dbGridSchedule.Columns[10].HeaderText = PersonalBookKeeper.Properties.Resources.strTxtCategory;
             dbGridSchedule.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -443,8 +452,8 @@ namespace PersonalBookKeeper
             dbGridCategory.Enabled = bEdit;
             dbGridSrcAccount.Enabled = bEdit && (dbGridCategory.SelectedRows.Count != 0);
             dbGridDstAccount.Enabled = bEdit && (dbGridCategory.SelectedRows.Count != 0);
-            txtSrcAmount.ReadOnly = !(bEdit && (dbGridCategory.SelectedRows.Count != 0));
-            txtDstAmount.ReadOnly = !(bEdit && (dbGridCategory.SelectedRows.Count != 0));
+            txtSrcAmount.ReadOnly = !(bEdit && (dbGridSrcAccount.SelectedRows.Count != 0));
+            txtDstAmount.ReadOnly = !(bEdit && (dbGridDstAccount.SelectedRows.Count != 0));
             btnDel.Enabled = !bEdit;
             btnRun.Enabled = !bEdit;
             dbGridSchedule.Enabled = !bEdit;
@@ -457,7 +466,7 @@ namespace PersonalBookKeeper
             {
                 if (txtScheduleName.Text == "")
                 {
-                    MessageBox.Show(PersonalBookKeeper.Properties.Resources.strErrNameBlank, PersonalBookKeeper.Properties.Resources.strErrTitle);
+                    MessageBox.Show(PersonalBookKeeper.Properties.Resources.strErrNameScheduleBlank, PersonalBookKeeper.Properties.Resources.strErrTitle);
                     bOK = false;
                 }
             }
@@ -465,7 +474,7 @@ namespace PersonalBookKeeper
             {
                 if (dbGridCategory.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show(PersonalBookKeeper.Properties.Resources.strErrNoCategoryAssigned, PersonalBookKeeper.Properties.Resources.strErrTitle);
+                    MessageBox.Show(PersonalBookKeeper.Properties.Resources.strErrNoCategoryAssigned4Schedule, PersonalBookKeeper.Properties.Resources.strErrTitle);
                     bOK = false;
                 }
             }
@@ -530,7 +539,9 @@ namespace PersonalBookKeeper
             txtScheduleDesc.Text = dbGridSchedule.SelectedRows[0].Cells[9].Value.ToString();
             txtPeriod.Text = dbGridSchedule.SelectedRows[0].Cells[11].Value.ToString();
             txtLastUpdate.Text = dbGridSchedule.SelectedRows[0].Cells[12].Value.ToString();
-            if (dbGridSchedule.SelectedRows[0].Cells[14].Value != DBNull.Value)
+            txtSrcAmount.Text = "";
+            dbGridSrcAccount.ClearSelection();
+            if (dbGridSchedule.SelectedRows[0].Cells[3].Value != DBNull.Value)
             {
                 short sDecPoint = 0;
                 if (dbGridSchedule.SelectedRows[0].Cells[15].Value != DBNull.Value)
@@ -547,12 +558,9 @@ namespace PersonalBookKeeper
                     }
                 }
             }
-            else
-            {
-                txtSrcAmount.Text = "";
-                dbGridSrcAccount.ClearSelection();
-            }
-            if (dbGridSchedule.SelectedRows[0].Cells[17].Value != DBNull.Value)
+            txtDstAmount.Text = "";
+            dbGridDstAccount.ClearSelection();
+            if (dbGridSchedule.SelectedRows[0].Cells[5].Value != DBNull.Value)
             {
                 short sDecPoint = 0;
                 if (dbGridSchedule.SelectedRows[0].Cells[18].Value != DBNull.Value)
@@ -568,11 +576,6 @@ namespace PersonalBookKeeper
                         break;
                     }
                 }
-            }
-            else
-            {
-                txtDstAmount.Text = "";
-                dbGridDstAccount.ClearSelection();
             }
             for (int i = 0; i < dbGridCategory.Rows.Count; i++)
             {
@@ -708,7 +711,7 @@ namespace PersonalBookKeeper
             cmdInsertTransaction.Parameters["@SrcAccID"].Value = dbGridSchedule.SelectedRows[0].Cells[3].Value;
             cmdInsertTransaction.Parameters["@SrcAmount"].Value = dbGridSchedule.SelectedRows[0].Cells[14].Value;
             cmdInsertTransaction.Parameters["@DstAccID"].Value = dbGridSchedule.SelectedRows[0].Cells[5].Value;
-            cmdInsertTransaction.Parameters["@DstAmount"].Value = dbGridSchedule.SelectedRows[0].Cells[16].Value;
+            cmdInsertTransaction.Parameters["@DstAmount"].Value = dbGridSchedule.SelectedRows[0].Cells[17].Value;
             cmdUpdateSchedule.Parameters["@SchedID"].Value = dbGridSchedule.SelectedRows[0].Cells[0].Value;
             cmdUpdateSchedule.Parameters["@LastMadeTime"].Value = dt2Set;
             cmdInsertTransaction.ExecuteNonQuery();
@@ -719,7 +722,7 @@ namespace PersonalBookKeeper
         {
             SqlCommand cmdDeleteSchedule = new SqlCommand(@"UPDATE [dbo].[SCHEDULE] SET [DELETED]=1 WHERE ID=@SchedID", dbConn);
             cmdDeleteSchedule.Parameters.Add(new SqlParameter("@SchedID", SqlDbType.BigInt));
-            cmdDeleteSchedule.Parameters["@SchedID"].Value = dbGridSchedule.SelectedRows[0].Cells[1].Value;
+            cmdDeleteSchedule.Parameters["@SchedID"].Value = dbGridSchedule.SelectedRows[0].Cells[0].Value;
             cmdDeleteSchedule.ExecuteNonQuery();
         }
     }
