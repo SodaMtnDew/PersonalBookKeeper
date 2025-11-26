@@ -396,7 +396,7 @@ BEGIN
 	FETCH NEXT FROM trans_cursor INTO @TransID,@CatID,@TransName,@TransDesc,@MadeTime,@SrcAccID,@SrcAmount,@DstAccID,@DstAmount;
 	WHILE @@FETCH_STATUS = 0 
 	BEGIN
-		SET @SrcAccName=N''; SET @DstAccName=N''; SET @SrcCurID=0; SET @DstCurID=0; SET @SrcAccFlag=0; SET @DstAccFlag=0; SET @IsSameCur=0;
+		SET @SrcAccName=N''; SET @DstAccName=N''; SET @SrcCurID=NULL; SET @DstCurID=NULL; SET @SrcAccFlag=NULL; SET @DstAccFlag=NULL; SET @IsSameCur=0; SET @SrcDecPnt=NULL; SET @DstDecPnt=NULL;
 		SET @ToInsert = 1;
 		SELECT @CatName=[NAME],@CatFlow=[FlowDirect] FROM @cat2Show WHERE [ID]=@CatID;
 		IF @SrcAccID IS NOT NULL
@@ -493,7 +493,7 @@ BEGIN
 		END
 		IF @ToInsert=1
 		BEGIN
-			SET @SrcAccName=N''; SET @DstAccName=N''; SET @SrcCurID=0; SET @DstCurID=0; SET @SrcAccFlag=0; SET @DstAccFlag=0; SET @IsSameCur=0;
+			SET @SrcAccName=N''; SET @DstAccName=N''; SET @SrcCurID=NULL; SET @DstCurID=NULL; SET @SrcAccFlag=NULL; SET @DstAccFlag=NULL; SET @IsSameCur=0; SET @SrcDecPnt=NULL; SET @DstDecPnt=NULL;
 			SELECT @CatName=[NAME],@CatFlow=[FlowDirect] FROM @cat2Show WHERE [ID]=@CatID;
 			IF @SrcAccID IS NOT NULL
 			BEGIN
